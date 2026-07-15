@@ -1,16 +1,9 @@
-{
-  "name": "États des lieux",
-  "short_name": "EDL",
-  "description": "États des lieux professionnels, rapides et hors ligne.",
-  "lang": "fr-FR",
-  "start_url": "./",
-  "scope": "./",
-  "display": "standalone",
-  "orientation": "any",
-  "background_color": "#f3f5f8",
-  "theme_color": "#14233c",
-  "icons": [
-    {"src":"./icon-192.png","sizes":"192x192","type":"image/png"},
-    {"src":"./icon-512.png","sizes":"512x512","type":"image/png"}
-  ]
-}
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">Constat</title><desc id="desc">Monogramme de maison et coche de validation</desc>
+  <defs><linearGradient id="navy" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#203a61"/><stop offset="1" stop-color="#101d33"/></linearGradient><linearGradient id="gold" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f0ce82"/><stop offset="1" stop-color="#c49234"/></linearGradient><filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#081324" flood-opacity=".28"/></filter></defs>
+  <rect x="28" y="28" width="456" height="456" rx="116" fill="url(#navy)"/>
+  <path d="M105 247 249 117a18 18 0 0 1 24 0l91 82v-42h45v83l18 16-27 30-139-125-129 116z" fill="#fff" filter="url(#shadow)"/>
+  <path d="M143 259v124h102v-87h59v87h56V259l-99-89z" fill="#fff"/>
+  <circle cx="352" cy="352" r="94" fill="#fff" stroke="#14233c" stroke-width="14"/>
+  <path d="m307 352 29 30 61-70" fill="none" stroke="url(#gold)" stroke-width="25" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
