@@ -1,29 +1,19 @@
-# État des lieux V2 — base propre
+# État des lieux V3 Standalone
 
-Application mobile PWA, sans backend, avec stockage local IndexedDB.
+Version autonome : tout le CSS et le JavaScript sont intégrés dans `index.html`.
 
-## Inclus
-- catalogue de dossiers ;
-- assistant de création ;
-- entrée / sortie ;
-- modèles de pièces avec éléments adaptés ;
-- photos par pièce ;
-- signatures tactiles ;
-- sauvegarde automatique ;
-- duplication d’un dossier ;
-- dictée vocale avec validation ;
-- PDF neutre avec tableaux, photos, signatures et pagination ;
-- icône iPhone et PWA.
+## Déploiement GitHub / Vercel
+1. Supprimez les anciens fichiers du dépôt, sans supprimer le dépôt.
+2. Décompressez cette archive.
+3. Déposez tous les fichiers directement à la racine.
+4. Faites un commit.
+5. Vercel redéploie automatiquement.
 
-## Déploiement
-1. Déposer tous les fichiers à la racine du dépôt GitHub.
-2. Connecter le dépôt à Vercel.
-3. Framework : Other.
-4. Aucune commande de build.
-5. Ouvrir l’URL dans Safari puis Partager > Ajouter à l’écran d’accueil.
+## Fichiers
+- index.html
+- manifest.webmanifest
+- service-worker.js
+- vercel.json
+- icônes PNG
 
-## Limites
-- les dossiers restent stockés sur l’appareil ;
-- la dictée dépend du navigateur ;
-- l’import PDF est conservé mais n’est pas analysé automatiquement dans cette V2 propre ;
-- aucune synchronisation entre appareils.
+Cette structure évite les erreurs 404 sur les dossiers CSS/JS.
