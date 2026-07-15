@@ -64,4 +64,11 @@ buildPrint=function(){
 
 $("#newExit").onclick=showExitChooser;
 $("#manualSaveBtn").onclick=async()=>{const ok=await upsert();toast(ok?"Dossier enregistré sur cet appareil":"Échec de l’enregistrement")};
+const neutralBuildPrint=buildPrint;
+buildPrint=function(){
+  neutralBuildPrint();
+  const print=document.querySelector("#printView");
+  print.querySelectorAll(".pdf-cover > img").forEach(image=>image.remove());
+  print.innerHTML=print.innerHTML.replaceAll(" · Constat · "," · ").replaceAll("avec Constat","depuis l’application");
+};
 initialiseV2();

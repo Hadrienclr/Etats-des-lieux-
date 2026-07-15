@@ -1,6 +1,6 @@
-# Constat — États des lieux
+# États des lieux
 
-Application mobile-first installable pour réaliser des états des lieux d’entrée et de sortie avec comparaison fiable, stockage local volumineux et PDF premium.
+Application mobile-first neutre et sans marque pour réaliser des états des lieux d’entrée et de sortie avec comparaison fiable, stockage local volumineux et document PDF professionnel.
 
 ## Déployer sur GitHub et Vercel
 
