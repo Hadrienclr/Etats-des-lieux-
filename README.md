@@ -1,6 +1,6 @@
 # Constat — États des lieux
 
-Application web installable pour réaliser des états des lieux d’entrée et de sortie sur téléphone, tablette ou ordinateur.
+Application mobile-first installable pour réaliser des états des lieux d’entrée et de sortie avec comparaison fiable, stockage local volumineux et PDF premium.
 
 ## Déployer sur GitHub et Vercel
 
@@ -13,7 +13,9 @@ Aucune compilation, variable d’environnement ou base de données n’est néce
 
 ## Utilisation
 
-- Les dossiers sont sauvegardés automatiquement dans le navigateur de l’appareil.
+- Les dossiers et photographies sont sauvegardés dans le stockage local IndexedDB de l’appareil.
+- Le bouton **Enregistrer** confirme immédiatement la sauvegarde du dossier courant.
+- Une sortie peut être liée à une entrée : la référence d’entrée est figée et reste consultable sans modifier l’original.
 - **Sauvegarder les données** télécharge une copie JSON de tous les dossiers.
 - **Importer** restaure cette sauvegarde.
 - **Aperçu PDF** ouvre l’impression du navigateur : choisissez « Enregistrer au format PDF ».

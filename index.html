@@ -22,11 +22,42 @@
     @media(max-width:800px){body{padding-bottom:84px}.topbar{height:62px;padding:8px 12px}.brand img{width:38px;height:38px}.brand-copy span{display:none}main{padding:16px 12px}.hero{align-items:start;flex-direction:column}.stats{grid-template-columns:repeat(2,1fr)}.catalog{grid-template-columns:1fr 1fr}.stepper{top:68px;overflow-x:auto;display:flex}.step-btn{min-width:112px}.grid.three{grid-template-columns:1fr 1fr}.photos{grid-template-columns:repeat(3,1fr)}.review-grid{grid-template-columns:1fr}}
     @media(max-width:560px){.top-actions .secondary{display:none}.hero h1{font-size:29px}.toolbar{grid-template-columns:1fr auto}.toolbar .import-label{display:none}.catalog{grid-template-columns:1fr}.grid,.grid.three,.signature-grid{grid-template-columns:1fr}.card{padding:15px}.element-head{display:none}.element{grid-template-columns:1fr 1fr 38px}.element [data-k="description"]{grid-column:1/3}.photos{grid-template-columns:repeat(2,1fr)}.room-head{align-items:flex-start;flex-wrap:wrap}.room-summary{width:100%;padding-left:41px}.bottom .btn{padding:11px}.mobile-label{display:none}.editor-head .btn{display:none}.room-picker{grid-template-columns:1fr}}
     @media print{body{background:#fff;padding:0;font-size:11px}.topbar,.stepper,.bottom,.no-print,.toast{display:none!important}main{width:100%;padding:0}.view{display:none!important}#printView{display:block!important}.print-page{page-break-after:always;padding:12mm 13mm}.print-page:last-child{page-break-after:auto}.print-brand{display:flex;align-items:center;border-bottom:2px solid var(--navy);padding-bottom:6mm;margin-bottom:6mm}.print-brand img{width:15mm;border-radius:4mm;margin-right:4mm}.print-brand h1{margin:0;font-size:20px}.print-brand p{margin:1mm 0 0;color:#666}.print-section{margin:5mm 0}.print-section h2{background:var(--navy);color:#fff;padding:2.5mm 3mm;font-size:12px;margin:0 0 2mm}.print-table{width:100%;border-collapse:collapse}.print-table th,.print-table td{border:1px solid #cbd1d8;padding:2mm;text-align:left;vertical-align:top}.print-table th{background:#f0f2f5}.print-photos{display:grid;grid-template-columns:repeat(3,1fr);gap:3mm}.print-photos img{width:100%;height:48mm;object-fit:cover}.print-signs{display:grid;grid-template-columns:1fr 1fr;gap:5mm}.print-sign{border:1px solid #bbb;min-height:38mm;padding:3mm}.print-sign img{width:100%;height:24mm;object-fit:contain}.page-footer{margin-top:5mm;border-top:1px solid #bbb;padding-top:2mm;color:#777;font-size:9px}}
+    /* Finition produit : mouvement, tactilité et accessibilité */
+    :focus-visible{outline:3px solid rgba(216,173,85,.55);outline-offset:3px}
+    .btn,.icon-btn,.step-btn,.room-option,.record{transition:transform .18s cubic-bezier(.2,.8,.2,1),box-shadow .18s ease,background-color .18s ease,border-color .18s ease}
+    .btn:hover,.room-option:hover{transform:translateY(-1px);box-shadow:0 8px 18px rgba(20,35,60,.12)}
+    .btn:active,.icon-btn:active,.step-btn:active,.room-option:active{transform:scale(.97)}
+    .record:hover{transform:translateY(-3px);box-shadow:0 16px 36px rgba(20,35,60,.12);border-color:#c7d0dc}
+    .view.active{animation:viewIn .32s cubic-bezier(.2,.8,.2,1)}
+    .panel.active{animation:panelIn .3s cubic-bezier(.2,.8,.2,1)}
+    .room{animation:cardIn .3s cubic-bezier(.2,.8,.2,1) both}
+    .room:nth-child(2){animation-delay:.035s}.room:nth-child(3){animation-delay:.07s}.room:nth-child(4){animation-delay:.105s}
+    .modal.open .modal-card{animation:modalIn .28s cubic-bezier(.2,.9,.2,1)}
+    .save-dot:before{animation:savedPulse 2.4s infinite}
+    .upload{transition:border-color .18s,background-color .18s,transform .18s}.upload:hover{border-color:var(--gold);background:#fffaf0;transform:translateY(-1px)}
+    .room.validated{box-shadow:0 0 0 3px rgba(22,129,93,.07)}
+    .step-btn.complete span{background:#e5f5ee;color:var(--green)}
+    .element select{transition:background-color .2s,border-color .2s}
+    .ripple{position:fixed;width:10px;height:10px;border-radius:50%;background:rgba(216,173,85,.38);transform:translate(-50%,-50%) scale(0);animation:ripple .5s ease-out;pointer-events:none;z-index:200}
+    @keyframes viewIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+    @keyframes panelIn{from{opacity:0;transform:translateX(10px)}to{opacity:1;transform:none}}
+    @keyframes cardIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+    @keyframes modalIn{from{opacity:0;transform:translateY(14px) scale(.975)}to{opacity:1;transform:none}}
+    @keyframes savedPulse{0%,75%,100%{box-shadow:0 0 0 0 rgba(22,129,93,.28)}85%{box-shadow:0 0 0 7px rgba(22,129,93,0)}}
+    @keyframes ripple{to{transform:translate(-50%,-50%) scale(12);opacity:0}}
+    @media(max-width:560px){button,.btn,.icon-btn,.step-btn{min-height:44px}.record:hover{transform:none}.bottom{box-shadow:0 -12px 30px rgba(20,35,60,.08)}.topbar{box-shadow:0 4px 18px rgba(20,35,60,.05)}}
+    @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+    /* V2 mobile-first : comparaison lisible et PDF premium */
+    .source-list{display:grid;gap:9px}.source-card{display:flex;flex-direction:column;gap:3px;width:100%;padding:14px;border:1px solid var(--line);border-radius:14px;background:#fff;text-align:left;color:var(--ink)}.source-card span{font-size:11px;color:var(--muted)}
+    .comparison-banner{display:flex;justify-content:space-between;gap:8px;padding:10px 12px;margin-bottom:10px;border-radius:11px;background:#edf3fb;color:var(--navy);font-size:11px}.comparison-banner span{color:#52647d}
+    .entry-memory{display:flex;align-items:center;gap:6px;margin-top:5px;padding:7px 8px;border-radius:9px;background:#f1f4f8;font-size:10px}.entry-memory span{color:var(--muted);text-transform:uppercase;font-weight:850}.entry-memory small{display:block;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.change-state{display:grid;place-items:center;min-height:38px;border-radius:10px;background:#f1f4f8;color:var(--muted);font-size:9px;font-weight:900}.change-state.changed{background:#fff0df;color:#9a5c0a}.room-validate{display:flex;justify-content:flex-end;margin-top:13px}
+    @media(max-width:560px){body{font-size:14px}.brand-copy strong{font-size:15px}.hero{margin-top:2px}.hero p{font-size:13px}.stats{gap:8px}.stat{padding:13px}.stat strong{font-size:23px}.card{border-radius:16px}.editor-head{position:relative}.editor-head h1{font-size:19px}.stepper{margin-left:-12px;margin-right:-12px;border-radius:0;border-left:0;border-right:0;box-shadow:0 6px 16px rgba(20,35,60,.06)}.step-btn{min-width:98px;font-size:10px}.step-btn span{display:block;margin:0 auto 4px}.room-head{padding:12px}.room-body{padding:11px}.quick-bar{display:grid;grid-template-columns:1fr 1fr}.quick-bar .btn{width:100%}.compare-element{grid-template-columns:1fr 42px!important;padding:11px 0;border-bottom:1px solid #edf0f4}.compare-element .element-name{grid-column:1/-1}.compare-element select{grid-column:1/2}.compare-element [data-k="description"]{grid-column:1/-1!important;grid-row:auto}.compare-element .change-state{grid-column:2;grid-row:2}.entry-memory{display:grid;grid-template-columns:auto 1fr}.entry-memory small{grid-column:1/-1}.photos{grid-template-columns:1fr 1fr}.bottom{gap:6px;padding-left:9px;padding-right:9px}.bottom .btn{padding:10px 9px;font-size:12px}#manualSaveBtn{background:#e8f4ef;color:var(--green)}#printBtn{padding-left:12px;padding-right:12px}.signature-box canvas{height:150px}.modal{align-items:flex-end;padding:0}.modal-card{border-radius:24px 24px 0 0;max-height:92vh;padding:20px 16px calc(20px + env(safe-area-inset-bottom));animation:sheetIn .28s cubic-bezier(.2,.9,.2,1)!important}@keyframes sheetIn{from{transform:translateY(100%)}to{transform:none}}}
+    @media print{.premium-pdf{color:#172033}.pdf-cover{position:relative;min-height:85mm;padding:13mm;background:linear-gradient(135deg,#14233c,#223b61);color:#fff;border-radius:0 0 8mm 8mm;display:grid;grid-template-columns:24mm 1fr;gap:8mm}.pdf-cover>img{width:24mm;height:24mm}.pdf-cover-copy>span{color:#e8c675;font-size:9px;letter-spacing:1.5px;font-weight:800}.pdf-cover-copy h1{font-size:27px;line-height:1.05;margin:3mm 0 5mm}.pdf-cover-copy p{font-size:13px;line-height:1.5}.pdf-ref{position:absolute;right:13mm;bottom:10mm;display:flex;flex-direction:column;text-align:right}.pdf-ref span{font-size:9px;opacity:.75}.pdf-summary{display:grid;grid-template-columns:repeat(3,1fr);gap:3mm;margin:7mm 0}.pdf-summary>div{padding:4mm;background:#f3f5f8;border-radius:3mm}.pdf-summary span,.pdf-summary small{display:block;color:#68758a;font-size:9px}.pdf-summary b{display:block;margin:1mm 0;font-size:11px}.pdf-link{padding:3mm 4mm;background:#fff7e6;border-left:1.5mm solid #d8ad55;margin-bottom:5mm}.pdf-section{break-inside:auto;margin:6mm 0}.pdf-section>h2{font-size:14px;color:#14233c;border-bottom:1px solid #d8ad55;padding-bottom:2mm}.pdf-room-title{display:flex;align-items:center;gap:3mm;margin-bottom:3mm;break-after:avoid}.pdf-room-title>b{display:grid;place-items:center;width:11mm;height:11mm;border-radius:3mm;background:#14233c;color:#fff;font-size:13px}.pdf-room-title h2{margin:0;font-size:14px}.pdf-room-title span{color:#68758a;font-size:9px}.premium-table{break-inside:auto}.premium-table thead{display:table-header-group}.premium-table tr{break-inside:avoid}.premium-table td small{display:block;color:#68758a;margin-top:1mm}.premium-table .pdf-alert td{background:#fff5f3}.print-photos{margin-top:4mm}.print-photos figure{margin:0;break-inside:avoid}.print-photos figcaption{font-size:8px;color:#68758a}.pdf-kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:3mm}.pdf-kpis div{padding:4mm;text-align:center;background:#f3f5f8;border-radius:3mm}.pdf-kpis b{display:block;font-size:22px;color:#14233c}.pdf-kpis span{font-size:9px;color:#68758a}.pdf-notes{display:grid;grid-template-columns:1fr 1fr;gap:4mm}.pdf-notes p{padding:4mm;background:#f6f7f9;min-height:20mm}.pdf-signature-page{break-inside:avoid}.print-sign{display:flex;flex-direction:column}.print-sign span{font-size:9px;color:#68758a}.print-sign img{margin-top:auto}}
   </style>
 </head>
 <body>
   <header class="topbar">
-    <div class="brand"><img src="./icon-192.png" alt=""><div class="brand-copy"><strong>Constat</strong><span>États des lieux professionnels</span></div></div>
+    <div class="brand"><img src="./logo.svg" alt="Logo Constat"><div class="brand-copy"><strong>Constat</strong><span>États des lieux professionnels</span></div></div>
     <div class="top-actions"><button id="backupBtn" class="btn secondary">Sauvegarder les données</button><button id="installBtn" class="btn ghost hidden">Installer</button></div>
   </header>
   <main>
@@ -43,7 +74,7 @@
     </section>
     <section id="printView" class="view"></section>
   </main>
-  <div id="bottom" class="bottom hidden"><button id="prevBtn" class="btn secondary">← <span class="mobile-label">Précédent</span></button><div class="spacer"></div><button id="printBtn" class="btn ghost">Aperçu PDF</button><button id="nextBtn" class="btn"><span class="mobile-label">Suivant</span> →</button></div>
+  <div id="bottom" class="bottom hidden"><button id="prevBtn" class="btn secondary">← <span class="mobile-label">Précédent</span></button><div class="spacer"></div><button id="manualSaveBtn" class="btn secondary">Enregistrer</button><button id="printBtn" class="btn ghost">PDF</button><button id="nextBtn" class="btn"><span class="mobile-label">Suivant</span> →</button></div>
   <div id="roomModal" class="modal"><div class="modal-card"><div class="modal-head"><div><div class="eyebrow">Configuration</div><h2>Ajouter une pièce</h2></div><button class="icon-btn" data-close="roomModal">×</button></div><div id="roomPicker" class="room-picker"></div><div class="grid" style="margin-top:12px"><label>Nom personnalisé<input id="customRoom" placeholder="Ex. Chambre enfant"></label><button id="addCustomRoom" class="btn" style="align-self:end">Ajouter</button></div></div></div>
   <div id="confirmModal" class="modal"><div class="modal-card" style="max-width:440px"><div class="modal-head"><h2 id="confirmTitle">Confirmer</h2><button class="icon-btn" data-close="confirmModal">×</button></div><p id="confirmText" class="muted"></p><div style="display:flex;justify-content:flex-end;gap:8px"><button class="btn secondary" data-close="confirmModal">Annuler</button><button id="confirmYes" class="btn danger">Confirmer</button></div></div></div>
   <div id="toast" class="toast"></div>
@@ -109,6 +140,38 @@
   function exportBackup(){const blob=new Blob([JSON.stringify({app:"Constat",version:1,exportedAt:new Date().toISOString(),records},null,2)],{type:'application/json'}),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=`constat-sauvegarde-${new Date().toISOString().slice(0,10)}.json`;a.click();URL.revokeObjectURL(a.href);toast("Sauvegarde téléchargée")}
   async function importBackup(file){try{const data=JSON.parse(await file.text()),rows=Array.isArray(data)?data:data.records;if(!Array.isArray(rows))throw 0;askConfirm("Importer la sauvegarde ?",`${rows.length} dossier(s) seront ajoutés ou mis à jour.`,()=>{for(const r of rows){const i=records.findIndex(x=>x.id===r.id);if(i<0)records.push(r);else records[i]=r}persist();renderHome();toast("Sauvegarde importée")})}catch{toast("Fichier de sauvegarde invalide")}}
   $("#newEntry").onclick=()=>newRecord("Entrée");$("#newExit").onclick=()=>newRecord("Sortie");$("#backBtn").onclick=()=>{upsert();showView("homeView");renderHome()};$("#duplicateBtn").onclick=()=>duplicate(current.id,true);$("#search").oninput=renderHome;$("#statusFilter").onchange=renderHome;$("#prevBtn").onclick=()=>{if(step>0){step--;renderEditor()}};$("#nextBtn").onclick=()=>{if(step<5){step++;renderEditor()}else finalise()};$("#printBtn").onclick=()=>{buildPrint();window.print()};$("#backupBtn").onclick=exportBackup;$("#importFile").onchange=e=>e.target.files[0]&&importBackup(e.target.files[0]);$("#addCustomRoom").onclick=()=>{const n=$("#customRoom").value.trim();if(!n)return;const r=makeRoom("Autre");r.name=n;current.rooms.push(r);closeModal("roomModal");renderEditor();schedule()};$$('[data-close]').forEach(b=>b.onclick=()=>closeModal(b.dataset.close));$("#confirmYes").onclick=()=>{closeModal("confirmModal");confirmAction?.();confirmAction=null};window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();deferredInstall=e;$("#installBtn").classList.remove('hidden')});$("#installBtn").onclick=async()=>{deferredInstall?.prompt();deferredInstall=null;$("#installBtn").classList.add('hidden')};window.addEventListener('beforeunload',()=>current&&upsert());load();renderHome();if('serviceWorker'in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('./service-worker.js');
+  /* Micro-interactions et garde-fous de confort */
+  const persistDirect=persist;
+  persist=function(){
+    try{persistDirect()}
+    catch(error){
+      setSave("Stockage saturé",true);
+      toast("Stockage presque plein : exportez une sauvegarde et réduisez les photos.");
+    }
+  };
+  document.addEventListener("pointerdown",event=>{
+    const target=event.target.closest("button,.room-option");
+    if(!target||target.disabled||matchMedia("(prefers-reduced-motion: reduce)").matches)return;
+    const dot=document.createElement("span");dot.className="ripple";dot.style.left=event.clientX+"px";dot.style.top=event.clientY+"px";document.body.appendChild(dot);setTimeout(()=>dot.remove(),520);
+  });
+  document.addEventListener("click",event=>{
+    if(event.target.closest("[data-validate-room],#nextBtn,#confirmYes")&&navigator.vibrate)navigator.vibrate(14);
+  });
+  document.addEventListener("keydown",event=>{
+    if((event.ctrlKey||event.metaKey)&&event.key.toLowerCase()==="s"){
+      event.preventDefault();current?upsert():exportBackup();toast(current?"Dossier enregistré":"Sauvegarde téléchargée");
+    }
+    if(event.key==="Escape")$$('.modal.open').forEach(modal=>closeModal(modal.id));
+  });
+  document.addEventListener("visibilitychange",()=>{if(document.hidden&&current)upsert()});
+  document.addEventListener("change",event=>{
+    const token=event.target.dataset?.elementCondition;
+    if(!token||!current)return;
+    const [roomId,elementId]=token.split(":");
+    const element=findRoom(roomId)?.elements.find(item=>item.id===elementId);
+    if(element)element.condition=String(element.condition).replace(" · entrée","");
+  });
   </script>
+<script src="./logic-v2.js"></script>
 </body>
 </html>
