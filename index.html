@@ -56,6 +56,36 @@
     /* Identité volontairement neutre : aucun logo ni marque */
     .brand{padding-left:2px}.brand-copy strong{font-size:17px;letter-spacing:-.25px}.pdf-cover>img{display:none!important}
     @media print{.pdf-cover{grid-template-columns:1fr!important}.pdf-cover-copy{max-width:125mm}.pdf-cover-copy>span{color:#d8ad55}.premium-pdf .page-footer{text-align:center}}
+    /* Mobile V3 — interface terrain, calme et hiérarchisée */
+    .mobile-step-status{display:none}
+    @media(max-width:560px){
+      :root{--radius:16px;--shadow:none}
+      html{background:#f7f8fa}body{background:#f7f8fa;padding-bottom:82px;color:#111827}
+      .topbar{height:56px;padding:8px 16px;background:rgba(247,248,250,.96);border-bottom:0;box-shadow:none}
+      .brand-copy strong{font-size:16px;font-weight:800}.brand-copy span{display:none}.top-actions{gap:4px}.top-actions .btn{min-width:40px;min-height:40px;padding:0 10px;background:#fff;border:1px solid #e4e8ee;font-size:0}.top-actions #backupBtn:after{content:"↥";font-size:19px}.top-actions #installBtn:after{content:"↓";font-size:17px}
+      main{padding:12px 14px 24px;max-width:520px}
+      .view.active,.panel.active,.room{animation:mobileFade .16s ease-out both}.room:nth-child(n){animation-delay:0s}.ripple{display:none!important}
+      @keyframes mobileFade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+
+      /* Accueil utile, sans écran marketing */
+      .hero{display:block;margin:4px 0 18px}.hero .eyebrow{font-size:10px;letter-spacing:1.3px;color:#7b8798}.hero h1{font-size:28px;line-height:1.08;letter-spacing:-.8px;margin:5px 0 7px}.hero h1 br{display:none}.hero p{font-size:13px;line-height:1.45;max-width:330px}.hero-actions{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:17px}.hero-actions .btn{min-height:58px;padding:10px 12px;text-align:left;line-height:1.2;border-radius:14px;box-shadow:none}.hero-actions .gold{background:#fff;color:#172033;border:1px solid #dde3eb}.hero-actions #newExit{background:#172b49}
+      .stats{display:flex;gap:7px;overflow-x:auto;margin:0 -14px 15px;padding:0 14px 2px;scrollbar-width:none}.stats::-webkit-scrollbar{display:none}.stat{flex:0 0 auto;display:flex;align-items:center;gap:7px;padding:8px 11px;border-radius:999px;background:#fff;border-color:#e5e9ef}.stat span{font-size:10px;white-space:nowrap}.stat strong{font-size:13px;margin:0;order:-1}
+      .toolbar{display:grid;grid-template-columns:1fr 44px;gap:8px;margin-bottom:11px}.search input{height:46px;border:0;background:#fff;box-shadow:0 1px 0 #e4e8ee;padding-left:39px}.toolbar select{width:44px;height:46px;padding:0;border:0;background:#fff;color:transparent;background-image:none}.toolbar select:after{content:""}.toolbar .import-label{display:none}
+      .catalog{gap:8px}.record{padding:15px;border:0;border-radius:15px;box-shadow:0 1px 0 #e2e6ec}.record:hover{transform:none}.record h3{margin:10px 0 3px;font-size:16px}.record .meta{min-height:auto;line-height:1.45}.record .actions{display:grid;grid-template-columns:1fr auto auto;margin-top:13px}.record .actions .btn{min-height:40px}.record-top{align-items:center}.badge{padding:4px 8px}
+
+      /* Éditeur : contexte compact et progression lisible */
+      .editor-head{display:grid;grid-template-columns:42px 1fr auto;gap:9px;margin:0 0 10px}.editor-head .icon-btn{width:42px;background:#fff;border:1px solid #e1e6ed}.editor-head-copy{align-self:center}.editor-head h1{font-size:16px;line-height:1.2}.editor-head p{font-size:10px;max-width:230px}.editor-head #saveState{font-size:0}.editor-head #saveState:before{width:9px;height:9px;animation:none}.editor-head #saveState:after{content:"Sauvé";font-size:10px;color:#64748b}.editor-head>.btn{display:none}
+      .stepper{position:sticky;top:56px;display:block;margin:0 -14px 12px;padding:10px 14px 11px;border:0;border-radius:0;background:rgba(247,248,250,.97);box-shadow:0 1px 0 #e4e8ee;overflow:visible}.stepper>.step-btn{display:none}.mobile-step-status{display:grid;grid-template-columns:1fr auto;align-items:center;gap:3px 12px}.mobile-step-status div:first-child{display:flex;align-items:baseline;gap:8px}.mobile-step-status span{font-size:9px;color:#778397;text-transform:uppercase;font-weight:800;letter-spacing:.5px}.mobile-step-status strong{font-size:13px}.mobile-step-status em{font-style:normal;font-size:10px;font-weight:800;color:#64748b}.mobile-progress{grid-column:1/-1;height:3px;background:#e3e8ef;border-radius:9px;overflow:hidden}.mobile-progress i{display:block;height:100%;background:#1d3557;border-radius:9px;transition:width .18s ease}
+      .panel>.card,.review-grid .card{padding:16px;border:0;border-radius:16px;box-shadow:0 1px 0 #e2e6ec;margin-bottom:10px}.card-title{margin-bottom:14px}.card-title h2{font-size:17px;letter-spacing:-.2px}.card-title p{font-size:11px;line-height:1.45}.grid,.grid.three{gap:11px}.grid label,.grid.three label{grid-column:1/-1!important}label{font-size:11px;color:#526073}input,select,textarea{min-height:46px;border-color:#dce2ea;border-radius:11px;padding:11px 12px;background:#fbfcfd}textarea{min-height:104px}.section-note{font-size:11px;line-height:1.45;border-left:0;border-radius:12px;background:#eef3f8;padding:11px 12px}
+
+      /* Inspection : une pièce à la fois, un élément à la fois */
+      .room-list{gap:9px}.room{border:0;border-radius:16px;box-shadow:0 1px 0 #dde3ea;overflow:hidden}.room.validated{box-shadow:inset 0 0 0 1px #9bcdb9}.room-head{display:grid;grid-template-columns:34px 1fr 42px;gap:0 9px;padding:13px;background:#fff}.room-number{grid-row:1/3;width:34px;height:34px;border-radius:11px}.room-name{align-self:end;font-size:14px}.room-summary{width:auto;padding:0;align-self:start;font-size:9px}.room-head .icon-btn{grid-column:3;grid-row:1/3;width:40px;background:#f1f4f7}.room-body{padding:12px;background:#fafbfc;border-top:1px solid #edf0f3}.quick-bar{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-bottom:10px}.quick-bar .btn{min-height:40px;padding:8px;font-size:10px}.comparison-banner{display:grid;gap:2px;padding:10px;margin-bottom:8px}.element-head{display:none}.compare-element,.element{display:grid;grid-template-columns:1fr 38px!important;gap:7px;padding:12px 0;margin:0;border-bottom:1px solid #e5e9ee}.compare-element:last-of-type,.element:last-of-type{border-bottom:0}.element-name{grid-column:1/-1}.element-name>input,[data-element-name]{font-weight:750;background:#fff}.entry-memory{margin-top:6px;padding:8px;background:#eef2f6}.compare-element select,.element select{grid-column:1/2;grid-row:auto;min-height:44px}.compare-element [data-k="description"],.element [data-k="description"]{grid-column:1/-1!important;grid-row:auto}.change-state,.element>.icon-btn{grid-column:2;grid-row:2;width:38px;min-height:44px}.element>.icon-btn{background:#f2f4f7;color:#7b8798}.photos{grid-template-columns:1fr 1fr;gap:8px}.photo img{border-radius:10px}.upload{min-height:118px;background:#fff}.room-validate .btn{width:100%;min-height:46px}.room-actions{display:grid;grid-template-columns:1fr 1fr}
+      .meter-card{padding:12px;background:#fbfcfd}.keys-table{grid-template-columns:1fr 82px 40px}.signature-grid{gap:10px}.signature-box{padding:12px}.signature-box canvas{height:150px;margin-top:8px}.review-grid{display:block}
+
+      /* Barre au pouce : une seule action dominante */
+      .bottom{height:72px;display:grid;grid-template-columns:44px 96px 1fr;gap:7px;padding:9px 12px calc(9px + env(safe-area-inset-bottom));background:rgba(255,255,255,.97);box-shadow:0 -1px 0 #e0e5eb}.bottom .spacer{display:none}.bottom .btn{min-height:46px;border-radius:12px;font-size:12px;padding:9px}.bottom #prevBtn{grid-column:1;font-size:0}.bottom #prevBtn:before{content:"←";font-size:18px}.bottom #manualSaveBtn{grid-column:2;background:#eef2f6;color:#243650}.bottom #printBtn{display:none}.bottom #printBtn.mobile-final-action{display:block;grid-column:2}.bottom #printBtn.mobile-final-action+#nextBtn{grid-column:3}.bottom #nextBtn{grid-column:3;background:#172b49;font-size:13px}.bottom #nextBtn span{margin-left:4px}
+      .modal-card{box-shadow:0 -16px 50px rgba(13,25,42,.18)}.modal-head h2{font-size:20px}.source-card{min-height:64px}
+    }
   </style>
 </head>
 <body>
@@ -176,5 +206,6 @@
   });
   </script>
 <script src="./logic-v2.js"></script>
+<script src="./mobile-v3.js"></script>
 </body>
 </html>
