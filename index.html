@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#111827">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="apple-touch-icon" href="./icons/apple-touch-icon.png">
+  <link rel="icon" href="./icons/favicon-32.png">
+  <link rel="stylesheet" href="./src/styles.css">
+  <title>État des lieux</title>
+</head>
+<body>
+  <header class="app-header">
+    <button id="backBtn" class="icon-btn hidden" aria-label="Retour">←</button>
+    <div class="header-title">
+      <h1>État des lieux</h1>
+      <p id="headerSubtitle">Mes dossiers</p>
+    </div>
+    <div id="progressMini" class="progress-mini hidden">
+      <span id="progressText">0 %</span>
+      <div class="progress-track"><div id="progressBar"></div></div>
+    </div>
+  </header>
+
+  <main>
+    <section id="catalogView" class="view active">
+      <div class="catalog-toolbar">
+        <input id="searchInput" placeholder="Rechercher une adresse, un lot, un locataire…">
+        <button id="newBtn">+ Nouvel état des lieux</button>
+      </div>
+      <div id="catalogList" class="catalog-list"></div>
+    </section>
+
+    <section id="editorView" class="view">
+      <div class="section-card">
+        <h2>Informations générales</h2>
+        <div class="grid">
+          <label>Type
+            <select id="typeEdl">
+              <option value="Entrée">Entrée</option>
+              <option value="Sortie">Sortie</option>
+            </select>
+          </label>
+          <label>Date et heure
+            <input id="dateEdl" type="datetime-local">
+          </label>
+          <label>Adresse
+            <input id="adresse" placeholder="Adresse complète">
+          </label>
+          <label>Lot / référence
+            <input id="lot" placeholder="Lot 12, 3e étage">
+          </label>
+          <label>Nature
+            <select id="nature"><option>Appartement</option><option>Maison</option><option>Studio</option><option>Local</option></select>
+          </label>
+          <label>Meublé
+            <select id="meuble"><option>Non</option><option>Oui</option></select>
+          </label>
+        </div>
+      </div>
+
+      <div class="section-card">
+        <h2>Parties</h2>
+        <div class="grid">
+          <label>Bailleur / mandataire<input id="bailleur"></label>
+          <label>Locataire<input id="locataire"></label>
+          <label>Téléphone<input id="telephone"></label>
+          <label>Email<input id="email" type="email"></label>
+        </div>
+      </div>
+
+      <div class="section-card">
+        <h2>Compteurs et clés</h2>
+        <div class="grid">
+          <label>Électricité HP<input id="elecHP"></label>
+          <label>Électricité HC<input id="elecHC"></label>
+          <label>Gaz<input id="gaz"></label>
+          <label>Eau froide<input id="eauFroide"></label>
+          <label>Eau chaude<input id="eauChaude"></label>
+          <label>Clés porte<input id="clesPorte" type="number" min="0"></label>
+          <label>Badge / Vigik<input id="badges" type="number" min="0"></label>
+          <label>Bip parking<input id="bips" type="number" min="0"></label>
+        </div>
+      </div>
+
+      <div class="section-card">
+        <div class="section-head">
+          <h2>Pièces</h2>
+          <button id="addRoomBtn" class="secondary">+ Ajouter une pièce</button>
+        </div>
+        <div id="roomsContainer"></div>
+      </div>
+
+      <div class="section-card">
+        <h2>Observations et réserves</h2>
+        <textarea id="observations" rows="4" placeholder="Observations générales…"></textarea>
+        <textarea id="reserves" rows="4" placeholder="Réserves éventuelles…"></textarea>
+      </div>
+
+      <div class="section-card">
+        <h2>Signatures</h2>
+        <div class="signature-grid">
+          <div>
+            <label>Nom du locataire<input id="signLocName"></label>
+            <canvas id="signLoc"></canvas>
+            <button class="secondary clear-sign" data-target="signLoc">Effacer</button>
+          </div>
+          <div>
+            <label>Nom du bailleur / mandataire<input id="signBailName"></label>
+            <canvas id="signBail"></canvas>
+            <button class="secondary clear-sign" data-target="signBail">Effacer</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="bottomBar" class="bottom-bar hidden">
+    <div id="saveState">Enregistré</div>
+    <button id="saveBtn" class="secondary">Enregistrer</button>
+    <button id="pdfBtn">Ouvrir le PDF</button>
+  </div>
+
+  <div id="wizardModal" class="modal">
+    <div class="modal-card wizard-card">
+      <button id="wizardClose" class="modal-close">×</button>
+      <h2>Créer un état des lieux</h2>
+      <div id="wizardSteps">
+        <div class="wizard-step active" data-step="1">
+          <h3>Type de document</h3>
+          <div class="choice-grid">
+            <button class="choice active" data-type="Entrée">Entrée</button>
+            <button class="choice" data-type="Sortie">Sortie</button>
+          </div>
+        </div>
+        <div class="wizard-step" data-step="2">
+          <h3>Le logement</h3>
+          <div class="grid">
+            <label>Adresse<input id="wAdresse"></label>
+            <label>Lot<input id="wLot"></label>
+            <label>Meublé<select id="wMeuble"><option>Non</option><option>Oui</option></select></label>
+            <label>Nombre de pièces principales<select id="wNbPieces"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></label>
+          </div>
+        </div>
+        <div class="wizard-step" data-step="3">
+          <h3>Pièces présentes</h3>
+          <div id="wizardRooms" class="chips"></div>
+          <label class="file-label">Ancien état des lieux PDF (facultatif)
+            <input id="wPdf" type="file" accept="application/pdf">
+          </label>
+        </div>
+      </div>
+      <div class="wizard-actions">
+        <button id="wizardBack" class="secondary hidden">Retour</button>
+        <button id="wizardNext">Suivant</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="roomModal" class="modal">
+    <div class="modal-card">
+      <button id="roomClose" class="modal-close">×</button>
+      <h2>Ajouter une pièce</h2>
+      <div id="roomCatalog" class="room-catalog"></div>
+    </div>
+  </div>
+
+  <div id="voiceModal" class="modal">
+    <div class="modal-card">
+      <button id="voiceClose" class="modal-close">×</button>
+      <h2 id="voiceTitle">Dicter une pièce</h2>
+      <div id="voiceStatus" class="notice">Appuyez sur le micro puis parlez.</div>
+      <div class="row">
+        <button id="voiceStart">🎤 Commencer</button>
+        <button id="voiceStop" class="secondary">Arrêter</button>
+      </div>
+      <textarea id="voiceText" rows="6" placeholder="Transcription…"></textarea>
+      <button id="voiceAnalyze">Analyser</button>
+      <div id="voiceResult"></div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jspdf-autotable@3.8.4/dist/jspdf.plugin.autotable.min.js"></script>
+  <script type="module" src="./src/app.js"></script>
+</body>
+</html>
